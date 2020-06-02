@@ -11,9 +11,8 @@ public class TerrainBuilder : MonoBehaviour
 	void Start()
     {
 		BlockPlacer(terrainOne, -.5f, 0);
-		BlockPlacer(terrainTwo, .5f, 0);
-
 		BlockPlacer(terrainOne, .5f, 1);
+		BlockPlacer(terrainTwo, .5f, 0);
 		BlockPlacer(terrainTwo, -.5f, 1);
 	}
 
@@ -21,9 +20,10 @@ public class TerrainBuilder : MonoBehaviour
 	{
 		for (int j = 0; j < boardSize; j++)
 		{
+			Instantiate(go, new Vector3(j + distanceAdjust, -.5f, j * 2f + ZdistanceAdjuster), Quaternion.identity);
+			
 			for (int i = 0; i < boardSize; i++)
 			{
-				Instantiate(go, new Vector3(j + distanceAdjust, -.5f, j * 2f + ZdistanceAdjuster), Quaternion.identity);
 				Instantiate(go, new Vector3(i * 2.0F + distanceAdjust, -.5f, j * 2f + ZdistanceAdjuster), Quaternion.identity);
 			}
 		}
